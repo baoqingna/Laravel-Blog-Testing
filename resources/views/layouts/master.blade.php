@@ -67,7 +67,7 @@
     </div>
   </header>
 
-  @yield('form');
+  @yield('form')
   <!-- Main Content -->
   {{-- <div class="container">
     <div class="row">
