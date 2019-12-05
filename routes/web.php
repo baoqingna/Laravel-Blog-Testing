@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'PagesController@welcome');
+Route::get('/', 'PagesController@Blog');
