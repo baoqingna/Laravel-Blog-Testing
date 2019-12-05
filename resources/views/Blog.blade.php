@@ -7,21 +7,33 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
             {!! Form::open() !!}
-            <div class="card-header">Create Post </div>
-            <div class="card-body">
-                {!! Form::label('title', 'Blog Title') !!}
-                {!! Form::text('title', null, ['class' => 'form-control']) !!}
-                <br>
-                {!! Form::label('desc', 'Blog Description') !!}
-                {!! Form::text('desc', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="card-footer">
-                {!! Form::submit('Add Post', ['class' => 'btn btn-primary']) !!}
-            </div>
+            <form name="sentMessage" id="contactForm" novalidate>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{Form::label('Blog Title')}}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Blog Title']) !!}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div><br>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{Form::label('Blog Description')}}
+                        {!! Form::textarea('desc', null, ['class' => 'form-control', 'placeholder' => 'Blog Description', 'rows' => '3']) !!}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div><br>
+
+                <div id="success"></div>
+                <div class="form-group">
+                    {!! Form::submit('Add Post', ['class' => 'btn btn-primary']) !!}
+                </div>
+
+            </form>
             {!! Form::close() !!}
 
-            <hr>
-            <br>
+
+             <br>
 
 
             {{-- @foreach ($iterable as $key => $value) --}}
@@ -35,6 +47,7 @@
                     </p>
                 </a>
             </div>
+            <hr><br>
             {{-- @endforeach --}}
         </div>
     </div>
