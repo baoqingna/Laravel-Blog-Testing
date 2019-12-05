@@ -7,7 +7,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
             {!! Form::open() !!}
-            <form name="sentMessage" id="contactForm" novalidate>
+            {{-- <form name="sentMessage" id="contactForm" novalidate> --}}
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         {{Form::label('Blog Title')}}
@@ -29,7 +29,7 @@
                     {!! Form::submit('Add Post', ['class' => 'btn btn-primary']) !!}
                 </div>
 
-            </form>
+            {{-- </form> --}}
             {!! Form::close() !!}
 
 
