@@ -11,7 +11,7 @@
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         {{Form::label('Blog Title')}}
-                        {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Blog Title']) !!}
+                        {!! Form::text('blogTitle', null, ['class' => 'form-control', 'placeholder' => 'Blog Title']) !!}
                         <p class="help-block text-danger"></p>
                     </div>
                 </div><br>
@@ -19,7 +19,7 @@
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         {{Form::label('Blog Description')}}
-                        {!! Form::textarea('desc', null, ['class' => 'form-control', 'placeholder' => 'Blog Description', 'rows' => '3']) !!}
+                        {!! Form::textarea('blogDesc', null, ['class' => 'form-control', 'placeholder' => 'Blog Description', 'rows' => '3']) !!}
                         <p class="help-block text-danger"></p>
                     </div>
                 </div><br>
@@ -36,19 +36,23 @@
              <br>
 
 
-            {{-- @foreach ($iterable as $key => $value) --}}
+            @foreach ($blogs as $blog)
             <div class="post-preview">
                 <a href="/">
-                    <h2 class="post-title"> Man must explore, and this is exploration at its greatest</h2>
-                    <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                    <h2 class="post-title">{{$blog->blogTitle}}</h2>
+                    <h3 class="post-subtitle">{{$blog->blogDesc}}</h3>
+                    <p>
+                     {{'Created (' .$blog->created_at. ')'}}
+                     {{'/ Updated (' .$blog->updated_at. ')'}}</p>
                     <p class="post-meta">
-                        <a href="#">Edit</a>
+                      {{-- <td><a href="{{ url('task/'.$task->id.'/edit') }}">Edit</a></td> --}}
+                        <a href="{{url('blog/' .$blog->id. '/edit')}}">Edit</a>
                         <a href="#">Delete</a>
                     </p>
                 </a>
             </div>
             <hr><br>
-            {{-- @endforeach --}}
+            @endforeach
         </div>
     </div>
 </div>

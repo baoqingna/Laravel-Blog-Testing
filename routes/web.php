@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@Blog');
+Route::get('/', 'PagesController@Home');
+Route::post('/', 'PagesController@storeFunc');
+Route::get('blog/{id}/edit', 'PagesController@editBlog');
+Route::post('blog/{id}/edit', 'PagesController@updateFunc');
