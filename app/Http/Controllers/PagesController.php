@@ -20,8 +20,8 @@ class PagesController extends Controller{
     $blog = new Blog;
     $blog->blogTitle = $request->blogTitle;
     $blog->blogDesc = $request->blogDesc;
-    $blog->created_at = $request->created_at;
-    $blog->updated_at = $request->updated_at;
+    $blog->created_at;
+    $blog->updated_at;
     $blog->save();
 
     return redirect()->back();
