@@ -43,13 +43,11 @@ class PagesController extends Controller{
       return redirect()->to('/');
   }
 
-  public function deleteFunc(Request $request, $id){
+  public function destroy($id){
 
       $blog = Blog::find($id);
-      $blog->blogTitle = $request->blogTitle;
-      $blog->blogDesc = $request->blogDesc;
-      $blog->Delete();
+      $blog->delete();
 
-      return redirect()->to('/');
+      return redirect()->to('/')->with('success', 'Blog successfully deleted!');
   }
 } //End of <class PagesController extends Controller>
