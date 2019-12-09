@@ -17,11 +17,18 @@ class PagesController extends Controller{
 
   public function storeFunc(Request $request){
 
+    $error_msgs = [
+      'blogTitle.required' => 'Blah blah is required.', 
+      'blogTitle.numeric' => 'Blah blah is mmust be a number.', 
+    ];
+
+    $this->validate($request, [
+        'blogTitle' => 'required|numeric'
+    ],$error_msgs);
+
     $blog = new Blog;
     $blog->blogTitle = $request->blogTitle;
     $blog->blogDesc = $request->blogDesc;
-    // $blog->created_at;
-    // $blog->updated_at;
     $blog->save();
 
     return redirect()->back()->with('msg', 'New Blog posted.');
