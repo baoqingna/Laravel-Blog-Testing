@@ -20,11 +20,11 @@ class PagesController extends Controller{
     $blog = new Blog;
     $blog->blogTitle = $request->blogTitle;
     $blog->blogDesc = $request->blogDesc;
-    $blog->created_at;
-    $blog->updated_at;
+    // $blog->created_at;
+    // $blog->updated_at;
     $blog->save();
 
-    return redirect()->back();
+    return redirect()->back()->with('msg', 'New Blog posted.');
   }
 
   public function editBlog($id){
@@ -48,6 +48,6 @@ class PagesController extends Controller{
       $blog = Blog::find($id);
       $blog->delete();
 
-      return redirect()->to('/')->with('success', 'Blog successfully deleted!');
+      return redirect()->to('/')->with('msg', 'Blog successfully deleted!');
   }
 } //End of <class PagesController extends Controller>

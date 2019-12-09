@@ -45,6 +45,11 @@
 @endsection
 
 @section('list')
+    @if (Session::has('msg'))
+        <div class="alert alert-success">
+            {{ Session::get('msg') }}
+        </div>
+    @endif
 
 @foreach ($blogs as $blog)
 <div class="post-preview">
